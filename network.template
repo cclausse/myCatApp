@@ -30,6 +30,19 @@
 			"CidrBlock" : "10.0.1.0/24",
 			"VpcId" : {"Ref":"myVPC" }
 		}
+      },
+	  "Sub2":{
+		"Type" : "AWS::EC2::Subnet", 
+		"Properties" : { 
+            "AvailabilityZone": {
+                "Fn::Select": [
+                  "0",
+                  { "Fn::GetAZs": "" }
+                ]
+              },
+			"CidrBlock" : "10.0.2.0/24",
+			"VpcId" : {"Ref":"myVPC" }
+		}
       }
    },
    
